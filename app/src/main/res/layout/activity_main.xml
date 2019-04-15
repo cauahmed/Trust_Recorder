@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+
+    android:backgroundTint="@color/ambient_mode_text">
+
+<LinearLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:paddingTop="16dp"
+            android:textColor="#000000"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/simpleImageViewLion"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_gravity="top|center"
+                android:src="@drawable/trust_logo" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|left|center"
+                android:background="@drawable/round_button"
+                android:src="@drawable/cog"
+                android:textColor="#000000"
+                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"/>
+
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|right|center"
+                android:background="@drawable/round_button"
+                android:textColor="#000000"
+                android:src="@drawable/start_new"
+                android:layout_marginRight="@dimen/wearable_drawer_view_elevation"/>
+
+
+        </FrameLayout>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="bottom|center"
+            android:background="#66ff66"/>
+
+    </LinearLayout>
+</ScrollView>

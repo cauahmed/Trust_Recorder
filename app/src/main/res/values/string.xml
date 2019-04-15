@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string-array name="users">
+                <item>Select User</item>
+                <item>Jones</item>
+                <item>Alan</item>
+                <item>Phil</item>
+                <item>Stu</item>
+        </string-array>
+        <string name="app_name">Trust Recorder</string>
+        <string name="welcome">Hello World</string>
+        <string name="title">Trust Recorder</string>
+</resources>
