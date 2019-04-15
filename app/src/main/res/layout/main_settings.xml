@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+
+    android:backgroundTint="@color/ambient_mode_text">
+
+
+<LinearLayout
+    android:id="@+id/layout_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <TextView
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:background="#92d151"
+        android:paddingTop="16dp"
+        android:text="@string/settings_title"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity=""
+        android:orientation="vertical">
+
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+            android:background="#92d151"
+            android:gravity=""
+            android:text="@string/select_input"
+            android:textAlignment="center"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+            android:background="#92d151"
+            android:text="@string/select_time"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</ScrollView>
