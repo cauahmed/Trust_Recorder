@@ -86,6 +86,7 @@
                 android:layout_gravity="center"
                 android:background="#92d151"
                 android:textAlignment="center"
+                android:onClick="selectTime"
                 android:text="@string/select_time"/>
 
             <LinearLayout

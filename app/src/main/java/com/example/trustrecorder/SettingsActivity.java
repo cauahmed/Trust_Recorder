@@ -36,4 +36,10 @@ public class SettingsActivity extends WearableActivity {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void selectTime(View view)
+    {
+        Intent intent = new Intent(SettingsActivity.this, SelectTimeActivity.class);
+        startActivity(intent);
+    }
 }

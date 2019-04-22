@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+
+    android:backgroundTint="@color/ambient_mode_text">
+
+    <LinearLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:id="@+id/layout_content_child"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/simpleImageViewLion"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top|center"
+                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+                android:src="@drawable/trust_logo" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/select_time"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:id="@+id/layout_content_child2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#92d151"
+                android:textAlignment="center"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="2" />
+
+            <Button
+                android:id="@+id/selectTime"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="#92d151"
+                android:textAlignment="center"
+                android:text="@string/open_interval"/>
+
+            <LinearLayout
+                android:id="@+id/layout_content_child3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+                    android:background="@drawable/round_button"
+                    android:onClick="backButton"
+                    android:src="@drawable/back"
+                    android:textColor="#000000" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>

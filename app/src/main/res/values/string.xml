@@ -12,10 +12,20 @@
                 <item>Likert Scale</item>
                 <item>Floating Point</item>
         </string-array>
+        <string-array name="time_interval">
+                <item>Select Time Interval</item>
+                <item>30 seconds</item>
+                <item>1 minute</item>
+                <item>2 minutes</item>
+                <item>5 minutes</item>
+                <item>10 minutes</item>
+        </string-array>
         <string name="app_name">Trust Recorder</string>
         <string name="welcome">Hello World</string>
         <string name="main_title">Trust Recorder</string>
         <string name="settings_title">Settings</string>
         <string name="select_input">Select Input Mode</string>
         <string name="select_time">Select Time Mode</string>
+        <string name="interval">Set-interval</string>
+        <string name="open_interval">Open-interval</string>
 </resources>
