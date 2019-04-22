@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
         <string-array name="users">
-                <item>Select Name</item>
-                <item>Jones</item>
-                <item>Alan</item>
-                <item>Phil</item>
-                <item>Stu</item>
+                <item>Select ID</item>
+                <item>123456</item>
+                <item>34567</item>
+                <item>87921</item>
+                <item>09817</item>
+        </string-array>
+        <string-array name="input">
+                <item>Select Input Mode</item>
+                <item>Likert Scale</item>
+                <item>Floating Point</item>
         </string-array>
         <string name="app_name">Trust Recorder</string>
         <string name="welcome">Hello World</string>
