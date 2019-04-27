@@ -12,7 +12,7 @@
                 <item>Likert Scale</item>
                 <item>Floating Point</item>
         </string-array>
-        <string-array name="time_interval">
+        <string-array name="interval">
                 <item>Select Time Interval</item>
                 <item>30 seconds</item>
                 <item>1 minute</item>
