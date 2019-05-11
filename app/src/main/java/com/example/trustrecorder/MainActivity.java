@@ -2,6 +2,7 @@ package com.example.trustrecorder;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends WearableActivity {
 
@@ -17,6 +19,12 @@ public class MainActivity extends WearableActivity {
     private TextView mTextView;
     Spinner spn1;
     TextView user;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    public static final String INTEGER = "int";
+
+    private String usertext;
+    private int spinnum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +76,40 @@ public class MainActivity extends WearableActivity {
             }
         }
         );
+        loadData();
+        updateViews();
+
     }
 
-    public void sendMessage(View view)
+    public void gotosetting (View view)
     {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);
+        saveData();
+
+    }
+
+    public void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(INTEGER, spn1.getSelectedItemPosition());
+        editor.putString(TEXT, user.getText().toString());
+        editor.apply();
+
+        Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        spinnum = sharedPreferences.getInt(INTEGER, 000);
+        usertext = sharedPreferences.getString(TEXT, "");
+    }
+
+    public void updateViews(){
+        user.setText(usertext);
+        spn1.setSelection(spinnum);
     }
 
 
