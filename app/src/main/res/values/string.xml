@@ -31,4 +31,5 @@
         <string name="open_interval">Open-Interval</string>
         <string name="pick">Pick Interval</string>
         <string name="click">Click Me</string>
+        <string name="hello">Hello</string>
 </resources>

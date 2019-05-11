@@ -67,17 +67,28 @@
 
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spn1"
             android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#92d151"
             android:textAlignment="center" />
 
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:textAlignment="center"
+            android:text="@string/hello"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="10dp"
             android:layout_weight="2" />
+
 
         <LinearLayout
             android:id="@+id/layout_content_child3"
