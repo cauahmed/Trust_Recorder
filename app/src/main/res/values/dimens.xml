@@ -12,4 +12,9 @@
     inner_frame_layout_padding (below variable) on round screens.
     -->
     <dimen name="inner_frame_layout_padding">10dp</dimen>
+
+    <dimen name="number_picker_text_size">20sp</dimen>
+
+
+
 </resources>

@@ -8,12 +8,13 @@
                 <item>09817</item>
         </string-array>
         <string-array name="input">
-                <item>Select Input Mode</item>
-                <item>Likert Scale</item>
-                <item>Floating Point</item>
+                <item>INPUT MODE</item>
+                <item>Change in trust</item>
+                <item>Trust level</item>
+                <item>Event based</item>
         </string-array>
         <string-array name="interval">
-                <item>Select Time Interval</item>
+                <item>TIME INTERVAL</item>
                 <item>30 seconds</item>
                 <item>1 minute</item>
                 <item>2 minutes</item>
@@ -27,5 +28,7 @@
         <string name="select_input">Select Input Mode</string>
         <string name="select_time">Select Time Mode</string>
         <string name="interval">Set-interval</string>
-        <string name="open_interval">Open-interval</string>
+        <string name="open_interval">Open-Interval</string>
+        <string name="pick">Pick Interval</string>
+        <string name="click">Click Me</string>
 </resources>

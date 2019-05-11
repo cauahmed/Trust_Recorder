@@ -70,6 +70,7 @@
                 android:id="@+id/spinner"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
+                style="@style/spinnerItemStyle"
                 android:layout_gravity="center"
                 android:background="#92d151"
                 android:textAlignment="center"/>
