@@ -14,7 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends WearableActivity {
-
+    public static final String EXTRA_TEXT = ".com.example.application.Trust_Recorder.EXTRA_TEXT";
+    public static final String EXTRA_NUMBER = ".com.example.application.Trust_Recorder.EXTRA_NUMBER";
 
     private TextView mTextView;
     Spinner spn1;
@@ -83,7 +84,14 @@ public class MainActivity extends WearableActivity {
 
     public void gotosetting (View view)
     {
+        TextView user = (TextView) findViewById(R.id.user);
+        String text = user.getText().toString();
+        Spinner spn1 = (Spinner) findViewById(R.id.spn1) ;
+        int pos = spn1.getSelectedItemPosition();
+
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra(EXTRA_TEXT, text);
+        intent.putExtra(EXTRA_NUMBER, pos);
         startActivity(intent);
         saveData();
 
@@ -103,7 +111,7 @@ public class MainActivity extends WearableActivity {
 
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        spinnum = sharedPreferences.getInt(INTEGER, 000);
+        spinnum = sharedPreferences.getInt(INTEGER, 0);
         usertext = sharedPreferences.getString(TEXT, "");
     }
 

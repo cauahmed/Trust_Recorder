@@ -37,14 +37,6 @@
             android:name=".SettingsActivity"
             android:label="Settings">
         </activity>
-        <activity
-            android:name=".SelectTimeActivity"
-            android:label="SelectTime">
-        </activity>
-        <activity
-            android:name=".OpenIntervalActivity"
-            android:label="OpenInterval">
-        </activity>
     </application>
 
 </manifest>

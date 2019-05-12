@@ -54,7 +54,7 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
+            android:layout_height="5dp"
             android:layout_weight="2" />
 
         <LinearLayout
@@ -62,12 +62,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginBottom="@dimen/card_content_padding_rect_top"
             android:orientation="vertical"
             android:showDividers="middle">
 
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spn2"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 style="@style/spinnerItemStyle"
@@ -77,24 +78,38 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="10dp"
+                android:layout_weight="2" />
+
+            <Spinner
+                android:id="@+id/spn3"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#92d151"
+                android:textAlignment="center"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
                 android:layout_weight="2" />
 
             <Button
-                android:id="@+id/selectTime"
-                android:layout_width="140dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:background="#92d151"
-                android:textAlignment="center"
-                android:onClick="selectTime"
-                android:text="@string/select_time"/>
+                android:id="@+id/timeBtn"
+                android:onClick="setTime"
+                android:textSize="8sp"
+                android:text="@string/open_interval"
+                android:layout_width="150dp"
+                android:layout_height="30dp" />
+
+
 
             <LinearLayout
                 android:id="@+id/layout_content_child3"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:gravity="center"
+                android:paddingBottom="12dp"
                 android:orientation="horizontal"
                 android:showDividers="middle">
 
