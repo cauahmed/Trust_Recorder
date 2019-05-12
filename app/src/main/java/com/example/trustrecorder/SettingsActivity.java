@@ -22,8 +22,12 @@ public class SettingsActivity extends WearableActivity {
     Button timeBtn;
     public static final String SHARED_PREFS2 = "sharedPrefs";
     public static final String INTEGER2 = "int";
+    public static final String INTEGER3 = "int";
+    public static final String BUTTON1 = "text";
 
     private int spinnum2;
+    private int spinnum3;
+    private String btntext1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +63,8 @@ public class SettingsActivity extends WearableActivity {
 
         // Enables Always-on
         setAmbientEnabled();
-        //loadData();
-        //updateViews();
+        loadData();
+        updateViews();
     }
 
     public void setTime(View view) {
@@ -92,6 +96,8 @@ public class SettingsActivity extends WearableActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(INTEGER2, spn2.getSelectedItemPosition());
+        editor.putInt(INTEGER3, spn3.getSelectedItemPosition());
+        editor.putString(BUTTON1, timeBtn.getText().toString());
         editor.apply();
 
         Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
@@ -102,9 +108,14 @@ public class SettingsActivity extends WearableActivity {
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
         spinnum2 = sharedPreferences.getInt(INTEGER2, 0);
+        spinnum3 = sharedPreferences.getInt(INTEGER3, 0);
+        btntext1 = sharedPreferences.getString(BUTTON1, "");
+
     }
 
     public void updateViews(){
         spn2.setSelection(spinnum2);
+        spn3.setSelection(spinnum3);
+        timeBtn.setText(btntext1);
     }
 }
