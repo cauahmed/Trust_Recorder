@@ -81,7 +81,7 @@ public class SettingsActivity extends WearableActivity {
         timePickerDialog.show();
     }
 
-    public void backButton(View view)
+    public void confirm(View view)
     {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
