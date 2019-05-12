@@ -65,6 +65,7 @@ public class SettingsActivity extends WearableActivity {
         setAmbientEnabled();
         loadData();
         updateViews();
+
     }
 
     public void setTime(View view) {
@@ -89,6 +90,8 @@ public class SettingsActivity extends WearableActivity {
     {
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
         startActivity(intent);
+        saveData();
+
     }
 
 

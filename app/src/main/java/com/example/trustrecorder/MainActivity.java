@@ -90,8 +90,8 @@ public class MainActivity extends WearableActivity {
         int pos = spn1.getSelectedItemPosition();
 
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-        intent.putExtra(EXTRA_TEXT, text);
-        intent.putExtra(EXTRA_NUMBER, pos);
+        //intent.putExtra(EXTRA_TEXT, text);
+        //intent.putExtra(EXTRA_NUMBER, pos);
         startActivity(intent);
         saveData();
 
