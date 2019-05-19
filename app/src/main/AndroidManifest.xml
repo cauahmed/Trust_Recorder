@@ -37,6 +37,14 @@
             android:name=".SettingsActivity"
             android:label="Settings">
         </activity>
+        <activity
+            android:name=".TrustLevelActivity"
+            android:label="TrustLevel">
+        </activity>
+        <activity
+            android:name=".TrustChangeActivity"
+            android:label="TrustChange">
+        </activity>
     </application>
 
 </manifest>

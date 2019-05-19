@@ -54,8 +54,8 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="2" />
+            android:layout_height="0dp"
+            android:layout_weight="3" />
 
         <LinearLayout
             android:id="@+id/layout_content_child2"
@@ -67,33 +67,67 @@
             android:showDividers="middle">
 
 
-            <Spinner
-                android:id="@+id/spn2"
-                android:textSize="8sp"
-                android:layout_width="140dp"
-                android:layout_height="20dp"
-                style="@style/spinnerItemStyle"
-                android:layout_gravity="center"
-                android:background="#92d151"
-                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/select_input"
+                android:textColor="#000000"
+                android:textSize="12sp" />
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"
+                android:layout_height="5dp"
                 android:layout_weight="2" />
 
-            <Spinner
-                android:id="@+id/spn3"
-                style="@style/spinnerItemStyle"
-                android:layout_width="140dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:background="#92d151"
-                android:textAlignment="center"/>
+            <LinearLayout
+                android:id="@+id/layout_content_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/change"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    />
+
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="45dp"
+                    android:layout_height="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:checked="false"
+                    android:text="New Switch" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/level"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"
+                android:layout_height="15dp"
                 android:layout_weight="2" />
 
             <Button
@@ -119,7 +153,7 @@
                 <ImageButton
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_marginRight="@dimen/wearable_drawer_view_elevation"
+                    android:layout_gravity="center"
                     android:background="@drawable/round_button"
                     android:src="@drawable/save"
                     android:onClick="confirm"

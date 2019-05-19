@@ -10,23 +10,22 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class SettingsActivity extends WearableActivity {
 
+    public static final String EXTRA_TEXT = ".com.example.application.Trust_Recorder.EXTRA_TEXT";
+    public static final String EXTRA_BOOLEAN = ".com.example.application.Trust_Recorder.EXTRA_BOOLEAN";
+
     private TextView mTextView;
-    Spinner spn2;
-    Spinner spn3;
     Button timeBtn;
     public static final String SHARED_PREFS2 = "sharedPrefs";
-    public static final String INTEGER2 = "int";
-    public static final String INTEGER3 = "int";
     public static final String BUTTON1 = "text";
-
-    private int spinnum2;
-    private int spinnum3;
+    public static final String SWITCH1 = "switch1";
+    private Switch switch1;
     private String btntext1;
 
     @Override
@@ -35,36 +34,26 @@ public class SettingsActivity extends WearableActivity {
         setContentView(R.layout.main_settings);
 
         mTextView = (TextView) findViewById(R.id.text);
-        spn2 = (Spinner) findViewById(R.id.spn2);
-        spn3 = (Spinner) findViewById(R.id.spn3);
+
+        switch1 = (Switch) findViewById(R.id.switch1);
+
         timeBtn = (Button) findViewById(R.id.timeBtn);
 
 
         //Spinner spinner = (Spinner) findViewById(R.id.spn2);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.input, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spn2.setAdapter(adapter);
 
-        // Enables Always-on
+        // Enables Always-on*/
         setAmbientEnabled();
 
-        //Spinner spinner = (Spinner) findViewById(R.id.spn3);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.interval, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spn3.setAdapter(adapter2);
-
-        // Enables Always-on
-        setAmbientEnabled();
-        loadData();
-        updateViews();
+        //loadData();
+        //updateViews();
 
     }
 
@@ -88,9 +77,16 @@ public class SettingsActivity extends WearableActivity {
 
     public void confirm(View view)
     {
+        Switch switch1 = (Switch) findViewById(R.id.switch1);
+        Button timeBtn = (Button) findViewById(R.id.timeBtn);
+        String position = Boolean.toString(switch1.isChecked());
+        String time = timeBtn.getText().toString();
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+        intent.putExtra(EXTRA_TEXT, time);
+        intent.putExtra(EXTRA_BOOLEAN, position);
+
         startActivity(intent);
-        saveData();
+        //saveData();
 
     }
 
@@ -98,8 +94,6 @@ public class SettingsActivity extends WearableActivity {
     public void saveData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(INTEGER2, spn2.getSelectedItemPosition());
-        editor.putInt(INTEGER3, spn3.getSelectedItemPosition());
         editor.putString(BUTTON1, timeBtn.getText().toString());
         editor.apply();
 
@@ -110,15 +104,11 @@ public class SettingsActivity extends WearableActivity {
 
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
-        spinnum2 = sharedPreferences.getInt(INTEGER2, 0);
-        spinnum3 = sharedPreferences.getInt(INTEGER3, 0);
         btntext1 = sharedPreferences.getString(BUTTON1, "");
 
     }
 
     public void updateViews(){
-        spn2.setSelection(spinnum2);
-        spn3.setSelection(spinnum3);
         timeBtn.setText(btntext1);
     }
 }

@@ -54,7 +54,7 @@
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="8dp"
         android:layout_weight="2" />
 
     <LinearLayout
@@ -77,16 +77,34 @@
         <TextView
             android:id="@+id/user"
             android:layout_width="130dp"
-            android:layout_height="30dp"
+            android:layout_height="18dp"
             android:paddingTop="5dp"
             android:textAlignment="center"
             android:text="@string/hello"
             android:textColor="#000000"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/input_mode"
+            android:layout_width="130dp"
+            android:layout_height="18dp"
+            android:paddingTop="5dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="130dp"
+            android:layout_height="18dp"
+            android:paddingTop="5dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="10sp" />
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
+            android:layout_height="0dp"
             android:layout_weight="2" />
 
 
@@ -116,6 +134,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/round_button"
+                android:onClick="initiate"
                 android:textColor="#000000"
                 android:src="@drawable/start_new"
                 android:layout_marginRight="@dimen/wearable_drawer_view_elevation"/>

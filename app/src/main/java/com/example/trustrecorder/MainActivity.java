@@ -23,6 +23,7 @@ public class MainActivity extends WearableActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
     public static final String INTEGER = "int";
+    public Boolean Switch = false;
 
     private String usertext;
     private int spinnum;
@@ -32,10 +33,35 @@ public class MainActivity extends WearableActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = getIntent();
+        String time;
+        String position;
+        if( intent.getExtras() == null)
+        {
+            time = "";
+            position = "Input Mode";
+
+        }else{
+            time = intent.getStringExtra(SettingsActivity.EXTRA_TEXT);
+            position = intent.getStringExtra(SettingsActivity.EXTRA_BOOLEAN);
+        }
+
+
         mTextView = (TextView) findViewById(R.id.text);
         spn1 = (Spinner) findViewById(R.id.spn1);
         user = (TextView) findViewById(R.id.user);
+        TextView timer = (TextView) findViewById(R.id.timer);
+        TextView inpmode = (TextView) findViewById(R.id.input_mode);
 
+        timer.setText("Time: " + time);
+        inpmode.setText(position);
+        if(position.compareTo("false")==0){
+            inpmode.setText("Mode: Change in Trust");
+        }else if(position.compareTo("true")==0){
+            inpmode.setText("Mode: Trust Level");
+            Switch = true;
+        }
+        //inpmode.setText(position);
 
 
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -57,16 +83,16 @@ public class MainActivity extends WearableActivity {
                         user.setText("Welcome");
                         break;
                     case 1:
-                        user.setText("Welcome Asif");
+                        user.setText("Welcome ABCD");
                         break;
                     case 2:
-                        user.setText("Welcome Nadim");
+                        user.setText("Welcome ABC");
                         break;
                     case 3:
-                        user.setText("Welcome Sang");
+                        user.setText("Welcome AB");
                         break;
                     case 4:
-                        user.setText("Welcome Apu");
+                        user.setText("Welcome A");
                         break;
                 }
             }
@@ -81,6 +107,8 @@ public class MainActivity extends WearableActivity {
         updateViews();
 
     }
+
+
 
     public void gotosetting (View view)
     {
@@ -118,6 +146,17 @@ public class MainActivity extends WearableActivity {
     public void updateViews(){
         user.setText(usertext);
         spn1.setSelection(spinnum);
+    }
+
+
+    public void initiate (View view) {
+        if (Switch.equals(false)) {
+            Intent intent = new Intent(MainActivity.this, TrustChangeActivity.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(MainActivity.this, TrustLevelActivity.class);
+            startActivity(intent);
+        }
     }
 
 

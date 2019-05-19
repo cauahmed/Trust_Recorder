@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+
+    android:backgroundTint="@color/ambient_mode_text">
+
+    <LinearLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:id="@+id/layout_content_child"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/simpleImageViewLion"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top|center"
+                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+                android:src="@drawable/trust_logo" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/trust_change"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/trust_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+
+        <Button
+            android:id="@+id/button_top"
+            android:layout_gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:text="+"
+            android:onClick="up"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/left_half_circle" />
+
+        <Button
+            android:id="@+id/button_middle"
+            android:layout_gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_weight="0"
+            android:text="="
+            android:onClick="equals"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/middle_circle" />
+
+        <Button
+            android:id="@+id/button_bottom"
+            android:layout_gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:text="-"
+            android:onClick="down"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/right_half_circle" />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>

@@ -25,11 +25,17 @@
         <string name="welcome">Hello World</string>
         <string name="main_title">Trust Recorder</string>
         <string name="settings_title">Settings</string>
-        <string name="select_input">Select Input Mode</string>
+        <string name="select_input">Switch Input Mode</string>
         <string name="select_time">Select Time Mode</string>
         <string name="interval">Set-interval</string>
         <string name="open_interval">Open-Interval</string>
         <string name="pick">Pick Interval</string>
         <string name="click">Click Me</string>
         <string name="hello">Hello</string>
+        <string name="change">Change in Trust</string>
+        <string name="level">Trust Level</string>
+        <string name="input_mode">Input Mode</string>
+        <string name="timer">Timer</string>
+        <string name="trust_level">Trust Level</string>
+        <string name="trust_change">Change in Trust</string>
 </resources>

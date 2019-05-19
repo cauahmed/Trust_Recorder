@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    xmlns:seekarc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+
+    android:backgroundTint="@color/ambient_mode_text">
+
+    <LinearLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:id="@+id/layout_content_child"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/simpleImageViewLion"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top|center"
+                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+                android:src="@drawable/trust_logo" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/trust_level"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/trust_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+     <com.akaita.android.circularseekbar.CircularSeekBar
+         android:layout_width="140dp"
+         android:layout_gravity="center"
+         android:layout_height="120dp"
+         android:id="@+id/seekbar"
+         app:enabled="true"
+         app:innerCircleColor="#e0f7e9"
+         app:min="0"
+         app:max="100"
+         app:progress="0.0"
+         app:progressTextColor="@android:color/black"
+         app:progressTextSize="16"
+         app:ringColor="@color/blue"
+         app:ringWidth="0.3"
+         app:showIndicator="true"
+         app:showInnerCircle="true"
+         app:showProgressText="true"
+         app:speedMultiplier="2"/>
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>
