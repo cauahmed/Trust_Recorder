@@ -23,7 +23,7 @@
         </string-array>
         <string name="app_name">Trust Recorder</string>
         <string name="welcome">Hello World</string>
-        <string name="main_title">Trust Recorder</string>
+        <string name="main_title">Trust Watch</string>
         <string name="settings_title">Settings</string>
         <string name="select_input">Switch Input Mode</string>
         <string name="select_time">Select Time Mode</string>

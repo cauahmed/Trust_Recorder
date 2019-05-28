@@ -50,18 +50,14 @@ public class MainActivity extends WearableActivity {
         mTextView = (TextView) findViewById(R.id.text);
         spn1 = (Spinner) findViewById(R.id.spn1);
         user = (TextView) findViewById(R.id.user);
-        TextView timer = (TextView) findViewById(R.id.timer);
-        TextView inpmode = (TextView) findViewById(R.id.input_mode);
 
-        timer.setText("Time: " + time);
-        inpmode.setText(position);
+
+
         if(position.compareTo("false")==0){
-            inpmode.setText("Mode: Change in Trust");
         }else if(position.compareTo("true")==0){
-            inpmode.setText("Mode: Trust Level");
             Switch = true;
         }
-        //inpmode.setText(position);
+
 
 
         // Create an ArrayAdapter using the string array and a default spinner layout

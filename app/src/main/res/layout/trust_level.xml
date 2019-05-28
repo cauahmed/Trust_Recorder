@@ -31,24 +31,15 @@
             android:orientation="horizontal"
             android:showDividers="middle">
 
-            <ImageView
-                android:id="@+id/simpleImageViewLion"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="top|center"
-                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
-                android:src="@drawable/trust_logo" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
 
             <TextView
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:paddingTop="25dp"
+                android:paddingLeft="30dp"
+                android:paddingBottom="10dp"
                 android:text="@string/trust_level"
+                android:layout_gravity="center"
                 android:textColor="#000000"
                 android:textSize="12sp" />
 
@@ -62,9 +53,9 @@
         android:showDividers="middle">
 
      <com.akaita.android.circularseekbar.CircularSeekBar
-         android:layout_width="140dp"
+         android:layout_width="160dp"
          android:layout_gravity="center"
-         android:layout_height="120dp"
+         android:layout_height="140dp"
          android:id="@+id/seekbar"
          app:enabled="true"
          app:innerCircleColor="#e0f7e9"
@@ -78,7 +69,7 @@
          app:showIndicator="true"
          app:showInnerCircle="true"
          app:showProgressText="true"
-         app:speedMultiplier="2"/>
+         app:speedMultiplier="1"/>
 
     </LinearLayout>
 

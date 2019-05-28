@@ -34,13 +34,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="top|center"
-            android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
             android:src="@drawable/trust_logo" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
 
         <TextView
             android:layout_width="130dp"
@@ -84,27 +81,9 @@
             android:textColor="#000000"
             android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/input_mode"
-            android:layout_width="130dp"
-            android:layout_height="18dp"
-            android:paddingTop="5dp"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/timer"
-            android:layout_width="130dp"
-            android:layout_height="18dp"
-            android:paddingTop="5dp"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp" />
-
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="5dp"
             android:layout_weight="2" />
 
 
@@ -119,16 +98,16 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/round_button"
             android:src="@drawable/cog"
             android:onClick="gotosetting"
             android:textColor="#000000" />
 
             <Space
-                android:layout_width="wrap_content"
+                android:layout_width="10dp"
                 android:layout_height="15dp"
-                android:layout_weight="2" />
+                android:layout_weight="1" />
 
             <ImageButton
                 android:layout_width="40dp"
@@ -137,7 +116,7 @@
                 android:onClick="initiate"
                 android:textColor="#000000"
                 android:src="@drawable/start_new"
-                android:layout_marginRight="@dimen/wearable_drawer_view_elevation"/>
+                android:layout_marginRight="25dp"/>
 
         </LinearLayout>
     </LinearLayout>

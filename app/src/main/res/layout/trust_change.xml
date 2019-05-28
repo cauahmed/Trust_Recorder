@@ -29,23 +29,13 @@
             android:orientation="horizontal"
             android:showDividers="middle">
 
-            <ImageView
-                android:id="@+id/simpleImageViewLion"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="top|center"
-                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
-                android:src="@drawable/trust_logo" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
 
             <TextView
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:paddingTop="25dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
                 android:text="@string/trust_change"
                 android:textColor="#000000"
                 android:textSize="12sp" />

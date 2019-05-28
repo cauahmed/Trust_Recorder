@@ -30,17 +30,13 @@
             android:showDividers="middle">
 
             <ImageView
-                android:id="@+id/simpleImageViewLion"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="top|center"
-                android:layout_marginLeft="@dimen/wearable_drawer_view_elevation"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
                 android:src="@drawable/trust_logo" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
 
             <TextView
                 android:layout_width="130dp"
@@ -62,7 +58,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginBottom="@dimen/card_content_padding_rect_top"
             android:orientation="vertical"
             android:showDividers="middle">
 
@@ -107,8 +102,7 @@
                     android:layout_height="20dp"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:checked="false"
-                    android:text="New Switch" />
+                    android:checked="false" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -127,7 +121,7 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="15dp"
+                android:layout_height="8dp"
                 android:layout_weight="2" />
 
             <Button
