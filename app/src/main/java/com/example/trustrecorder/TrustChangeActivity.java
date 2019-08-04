@@ -20,7 +20,6 @@ import android.support.wearable.activity.WearableActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.akaita.android.circularseekbar.CircularSeekBar;
 import com.example.trustrecorder.R;
 
 import java.text.DecimalFormat;

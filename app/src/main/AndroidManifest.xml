@@ -46,6 +46,7 @@
             android:name=".TrustChangeActivity"
             android:label="TrustChange">
         </activity>
+
     </application>
 
 </manifest>

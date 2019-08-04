@@ -18,9 +18,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:design:26.1.0'
-    implementation 'com.akaita.android:circular-seek-bar:1.0'
     implementation 'com.google.android.support:wearable:2.4.0'
     implementation 'com.google.android.gms:play-services-wearable:16.0.1'
     implementation 'com.android.support:percent:26.1.0'
@@ -29,5 +28,4 @@ dependencies {
     implementation 'com.android.support:wear:26.1.0'
     compileOnly 'com.google.android.wearable:wearable:2.4.0'
     implementation 'com.android.support:design:26.1.0'
-    implementation 'com.github.marcinmoskala:ArcSeekBar:0.20'
 }
