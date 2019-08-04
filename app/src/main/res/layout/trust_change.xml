@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="25dp"
+                android:paddingTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/trust_change"
@@ -53,8 +53,8 @@
         <Button
             android:id="@+id/button_top"
             android:layout_gravity="center"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:text="+"
             android:onClick="up"
@@ -65,8 +65,8 @@
         <Button
             android:id="@+id/button_middle"
             android:layout_gravity="center"
-            android:layout_width="130dp"
-            android:layout_height="30dp"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
             android:layout_weight="0"
             android:text="="
             android:onClick="equals"
@@ -77,8 +77,8 @@
         <Button
             android:id="@+id/button_bottom"
             android:layout_gravity="center"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
             android:text="-"
             android:onClick="down"

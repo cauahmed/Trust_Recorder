@@ -35,8 +35,8 @@
             <TextView
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="25dp"
-                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="32dp"
                 android:paddingBottom="10dp"
                 android:text="@string/trust_level"
                 android:layout_gravity="center"
@@ -53,9 +53,9 @@
         android:showDividers="middle">
 
      <com.akaita.android.circularseekbar.CircularSeekBar
-         android:layout_width="160dp"
+         android:layout_width="180dp"
          android:layout_gravity="center"
-         android:layout_height="140dp"
+         android:layout_height="165dp"
          android:id="@+id/seekbar"
          app:enabled="true"
          app:innerCircleColor="#e0f7e9"
@@ -65,7 +65,7 @@
          app:progressTextColor="@android:color/black"
          app:progressTextSize="16"
          app:ringColor="@color/blue"
-         app:ringWidth="0.3"
+         app:ringWidth="0.32"
          app:showIndicator="true"
          app:showInnerCircle="true"
          app:showProgressText="true"

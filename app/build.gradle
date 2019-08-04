@@ -29,4 +29,5 @@ dependencies {
     implementation 'com.android.support:wear:26.1.0'
     compileOnly 'com.google.android.wearable:wearable:2.4.0'
     implementation 'com.android.support:design:26.1.0'
+    implementation 'com.github.marcinmoskala:ArcSeekBar:0.20'
 }

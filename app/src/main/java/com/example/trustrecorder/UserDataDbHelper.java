@@ -16,33 +16,23 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_ENTRIES =
                 String.format("CREATE TABLE%s " +
-                        "(%s INTEGER PRIMARY KEY %s TIMESTAMP DEFAULT,%s INTEGER NOT NULL)",
-                        TrustChange.TABLE_NAME,
-                        TrustChange._ID,
-                        TrustChange.COLUMN_NAME_TIMESTAMP,
-                        TrustChange.COLUMN_NAME_TRUSTSCORE);
+                        "(%s INTEGER PRIMARY KEY %s TIMESTAMP DEFAULT,%s INTEGER NOT NULL,%s INTEGER NOT NULL)",
+                        TrustData.TABLE_NAME,
+                        TrustData._ID,
+                        TrustData.COLUMN_NAME_TIMESTAMP,
+                        TrustData.COLUMN_NAME_TRUSTSCORE,
+                        TrustData.COLUMN_NAME_TRUSTLEVEL);
         db.execSQL(SQL_CREATE_ENTRIES);
 
-        final String SQL_CREATE_ENTRIES2 =
-                String.format("CREATE TABLE%s " +
-                        "(%s INTEGER PRIMARY KEY %s TIMESTAMP DEFAULT,%s INTEGER NOT NULL)",
-                        TrustLevel.TABLE_NAME,
-                        TrustLevel._ID,
-                        TrustLevel.COLUMN_NAME_TIMESTAMP,
-                        TrustLevel.COLUMN_NAME_TRUSTLEVEL);
-        db.execSQL(SQL_CREATE_ENTRIES2);
 
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         final String SQL_DELETE_ENTRIES =
-                "DROP TABLE IF EXISTS " + TrustChange.TABLE_NAME;
+                "DROP TABLE IF EXISTS " + TrustData.TABLE_NAME;
 
-        final String SQL_DELETE_ENTRIES2 =
-                "DROP TABLE IF EXISTS " + TrustLevel.TABLE_NAME;
 
         db.execSQL(SQL_DELETE_ENTRIES);
-        db.execSQL(SQL_DELETE_ENTRIES2);
         onCreate(db);
 
     }

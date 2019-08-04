@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="slider_background">#4227395a</color>
+    <array name="gradient">
+        <item>#b5fff6</item>
+        <item>#00ffdf</item>
+        <item>#00b4a4</item>
+        <item>#007c6a</item>
+    </array>
+</resources>
