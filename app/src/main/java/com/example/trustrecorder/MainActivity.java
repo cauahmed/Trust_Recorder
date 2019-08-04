@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.wearable.Wearable;
 
 public class MainActivity extends WearableActivity {
     public static final String EXTRA_TEXT = ".com.example.application.Trust_Recorder.EXTRA_TEXT";
@@ -154,6 +157,8 @@ public class MainActivity extends WearableActivity {
             startActivity(intent);
         }
     }
+
+
 
 
 
