@@ -42,8 +42,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.example.trustrecorder.R;
-
 public class CircularSeekBar extends View {
 
 	/**

@@ -1,17 +1,11 @@
 package com.example.trustrecorder;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 
 import android.graphics.Color;
@@ -19,10 +13,6 @@ import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.trustrecorder.R;
-
-import java.text.DecimalFormat;
 
 
 public class TrustChangeActivity extends WearableActivity {

@@ -62,15 +62,35 @@
         android:orientation="vertical"
         android:showDividers="middle">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textColor="@color/blue"
 
-        <Spinner
-            android:id="@+id/spn1"
-            android:layout_width="119dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#92d151"
-            android:textAlignment="center" />
 
+            />
+
+       <TextView
+           android:layout_width="50dp"
+           android:layout_height="match_parent"
+           android:text="TEST ID"
+           android:textColor="@color/blue"
+           />
+
+            <TextView
+                android:id="@+id/test_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="auto_id"
+                android:textSize="12dp"
+                android:textColor="@color/blue"
+                />
+
+        </LinearLayout>
         <TextView
             android:id="@+id/user"
             android:layout_width="130dp"
