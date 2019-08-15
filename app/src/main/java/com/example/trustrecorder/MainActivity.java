@@ -23,8 +23,6 @@ import java.sql.Time;
 import java.util.Date;
 
 public class MainActivity extends WearableActivity {
-    public static final String EXTRA_TEXT = ".com.example.application.Trust_Recorder.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER = ".com.example.application.Trust_Recorder.EXTRA_NUMBER";
 
     private TextView mTextView;
     private TextView auto_id;
@@ -71,7 +69,6 @@ public class MainActivity extends WearableActivity {
             position = "Input Mode";
 
         }else{
-            time = intent.getStringExtra(SettingsActivity.EXTRA_TEXT);
             position = intent.getStringExtra(SettingsActivity.EXTRA_BOOLEAN);
         }
 

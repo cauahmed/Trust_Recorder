@@ -77,6 +77,7 @@
 
             <LinearLayout
                 android:id="@+id/layout_content_switch"
+                android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -124,29 +125,21 @@
                 android:layout_height="8dp"
                 android:layout_weight="2" />
 
-            <Button
-                android:id="@+id/timeBtn"
-                android:onClick="setTime"
-                android:textSize="8sp"
-                android:background="#92d151"
-                android:text="@string/open_interval"
-                android:layout_width="140dp"
-                android:layout_height="20dp" />
-
 
             <LinearLayout
                 android:id="@+id/layout_content_child3"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="65dp"
                 android:gravity="center"
                 android:paddingBottom="12dp"
+                android:paddingTop="10dp"
                 android:orientation="horizontal"
                 android:showDividers="middle">
 
 
                 <ImageButton
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/round_button"
                     android:src="@drawable/save"

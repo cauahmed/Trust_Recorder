@@ -21,12 +21,12 @@ public class SettingsActivity extends WearableActivity {
     public static final String EXTRA_BOOLEAN = ".com.example.application.Trust_Recorder.EXTRA_BOOLEAN";
 
     private TextView mTextView;
-    Button timeBtn;
+
     public static final String SHARED_PREFS2 = "sharedPrefs";
     public static final String BUTTON1 = "text";
     public static final String SWITCH1 = "switch1";
     private Switch switch1;
-    private String btntext1;
+    private String switchpos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class SettingsActivity extends WearableActivity {
 
         switch1 = (Switch) findViewById(R.id.switch1);
 
-        timeBtn = (Button) findViewById(R.id.timeBtn);
+
 
 
         //Spinner spinner = (Spinner) findViewById(R.id.spn2);
@@ -52,41 +52,21 @@ public class SettingsActivity extends WearableActivity {
         // Enables Always-on*/
         setAmbientEnabled();
 
-        //loadData();
+        loadData();
         //updateViews();
 
     }
 
-    public void setTime(View view) {
-
-
-        Calendar calendar=Calendar.getInstance();
-        int hour=calendar.get(Calendar.HOUR);
-        int minute=calendar.get(Calendar.MINUTE);
-        int second=calendar.get(Calendar.SECOND);
-        TimePickerDialog timePickerDialog;
-
-        timePickerDialog=new TimePickerDialog(SettingsActivity.this, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hour, int minute) {
-                timeBtn.setText(hour+" hours "+minute+" mins ");
-            }
-        }, hour,minute,true);
-        timePickerDialog.show();
-    }
 
     public void confirm(View view)
     {
         Switch switch1 = (Switch) findViewById(R.id.switch1);
-        Button timeBtn = (Button) findViewById(R.id.timeBtn);
         String position = Boolean.toString(switch1.isChecked());
-        String time = timeBtn.getText().toString();
         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
-        intent.putExtra(EXTRA_TEXT, time);
         intent.putExtra(EXTRA_BOOLEAN, position);
 
         startActivity(intent);
-        //saveData();
+        saveData();
 
     }
 
@@ -94,7 +74,7 @@ public class SettingsActivity extends WearableActivity {
     public void saveData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(BUTTON1, timeBtn.getText().toString());
+        editor.putString(SWITCH1, (Boolean.toString(switch1.isChecked())));
         editor.apply();
 
         Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
@@ -104,11 +84,16 @@ public class SettingsActivity extends WearableActivity {
 
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
-        btntext1 = sharedPreferences.getString(BUTTON1, "");
+        switchpos = sharedPreferences.getString(SWITCH1, "");
+        if (switchpos.compareTo("true")==0){
+            switch1.setChecked(true);
+        }else {
+            switch1.setChecked(false);
+        }
 
     }
 
     public void updateViews(){
-        timeBtn.setText(btntext1);
+
     }
 }

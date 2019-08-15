@@ -14,30 +14,137 @@
     android:backgroundTint="@color/ambient_mode_text">
 
 
-        <LinearLayout
+    <LinearLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-            android:padding="20dp"
-            android:orientation="vertical"
-            android:gravity="center"
+
+    <RelativeLayout
+
+        android:padding="0dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.example.trustrecorder.CircularSeekBar
+            android:id="@+id/circularSeekBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="170dp"
+            android:layout_margin="15dp"
+            android:clickable="true"
+            android:padding="10dp"
+            app:circle_stroke_width="8dp"
+            app:circle_x_radius="77dp"
+            app:circle_y_radius="77dp"
+            app:end_angle="250"
+            app:maintain_equal_circle="false"
+            app:max="100"
+            app:pointer_alpha_ontouch="100"
+            app:pointer_color="#0174DF"
+            app:pointer_halo_color="#880174DF"
+            app:progress="0"
+            app:start_angle="290"
+            app:use_custom_radii="true" />
 
-            <com.example.trustrecorder.CircularSeekBar
-                android:id="@+id/circularSeekBar"
-                app:start_angle="270"
-                app:end_angle="270"
-                app:use_custom_radii="false"
-                app:progress="0"
-                app:max="100"
-                app:pointer_alpha_ontouch="100"
-                app:pointer_color="#0174DF"
-                app:pointer_halo_color="#880174DF"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:padding="0dp"/>
+
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="50dp"
+            android:paddingLeft="10dp"
+            android:text="Very High"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="93dp"
+            android:paddingLeft="10dp"
+            android:text="Very Low"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginStart="0dp"
+            android:paddingLeft="5dp"
+            android:text="High"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:layout_marginStart="0dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="0dp"
+            android:text="Moderate"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="76dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="Neutral"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:layout_marginStart="143.5dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="Modest"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginStart="143.5dp"
+            android:paddingLeft="5dp"
+            android:text="Low"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="9sp" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
 
 
         </LinearLayout>
-        
+
 
 </ScrollView>

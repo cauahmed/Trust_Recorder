@@ -3,6 +3,7 @@ package com.example.trustrecorder;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 public class TrustChangeActivity extends WearableActivity {
     private TextView mTextView;
     public AlphaAnimation buttonClick = new AlphaAnimation(0.2F, 1F);
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +35,69 @@ public class TrustChangeActivity extends WearableActivity {
         addClickEffect(button2);
         addClickEffect(button3);
 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i++;
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (i == 1) {
+                            Toast.makeText(TrustChangeActivity.this, "UP", Toast.LENGTH_SHORT).show();
+                        } else if (i == 2){
+                            Toast.makeText(TrustChangeActivity.this, "D UP", Toast.LENGTH_SHORT).show();
+                        }
+                        i = 0;
+                    }
+                }, 500);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i++;
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (i == 1) {
+                            Toast.makeText(TrustChangeActivity.this, "EQ", Toast.LENGTH_SHORT).show();
+                        } else if (i == 2){
+                            Toast.makeText(TrustChangeActivity.this, "D EQ", Toast.LENGTH_SHORT).show();
+                        }
+                        i = 0;
+                    }
+                }, 500);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i++;
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (i == 1) {
+                            Toast.makeText(TrustChangeActivity.this, "DN", Toast.LENGTH_SHORT).show();
+                        } else if (i == 2){
+                            Toast.makeText(TrustChangeActivity.this, "D DN", Toast.LENGTH_SHORT).show();
+                        }
+                        i = 0;
+                    }
+                }, 500);
+            }
+        });
+
     }
 
-    public void up (View view){
-        Toast.makeText(this,"UPTICK",Toast.LENGTH_SHORT).show();
-    }
 
-    public void equals (View view){
-        Toast.makeText(this,"NO CHANGE",Toast.LENGTH_SHORT).show();
-    }
-
-    public void down (View view){
-        Toast.makeText(this,"DOWNTICK",Toast.LENGTH_SHORT).show();
-    }
 
     public void addClickEffect(View view)
     {

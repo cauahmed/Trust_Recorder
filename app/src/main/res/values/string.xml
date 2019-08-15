@@ -38,4 +38,9 @@
         <string name="timer">Timer</string>
         <string name="trust_level">Trust Level</string>
         <string name="trust_change">Change in Trust</string>
+        <string name="low">Low</string>
+        <string name="moderate">Fair</string>
+        <string name="stable">Stable</string>
+        <string name="high">High</string>
+
 </resources>
