@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 public class TrustLevelActivity extends WearableActivity {
     private TextView mTextView;
     private CircularSeekBar seekBar;
+    public Integer trustscore;
 
 
 

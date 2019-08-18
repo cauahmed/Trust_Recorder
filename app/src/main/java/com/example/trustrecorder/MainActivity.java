@@ -22,7 +22,10 @@ import com.google.android.gms.wearable.Wearable;
 import java.sql.Time;
 import java.util.Date;
 
+import static com.example.trustrecorder.SettingsActivity.EXTRA_BOOLEAN;
+
 public class MainActivity extends WearableActivity {
+
 
     private TextView mTextView;
     private TextView auto_id;
@@ -31,11 +34,12 @@ public class MainActivity extends WearableActivity {
     TextView user;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
-    public static final String INTEGER = "int";
+    public static final String SPINPOS = ".com.example.application.Trust_Recorder.SPINPOS";
     public Boolean Switch = false;
 
     private String usertext;
     private int spinnum;
+    String position;
 
 
 
@@ -46,8 +50,6 @@ public class MainActivity extends WearableActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        String time;
-        String position;
 ///////////////////////////////////////////////add by haiyang
         //find Id text view
         auto_id=findViewById(R.id.test_id);
@@ -65,11 +67,10 @@ public class MainActivity extends WearableActivity {
 
         if( intent.getExtras() == null)
         {
-            time = "";
             position = "Input Mode";
 
         }else{
-            position = intent.getStringExtra(SettingsActivity.EXTRA_BOOLEAN);
+            position = intent.getStringExtra(EXTRA_BOOLEAN);
         }
 
 
@@ -152,16 +153,15 @@ public class MainActivity extends WearableActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
        // editor.putInt(INTEGER, spn1.getSelectedItemPosition());
-        editor.putString(TEXT, user.getText().toString());
+        editor.putString(TEXT, auto_id.getText().toString());
         editor.apply();
 
-        Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
 
     }
 
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        spinnum = sharedPreferences.getInt(INTEGER, 0);
         usertext = sharedPreferences.getString(TEXT, "");
     }
 
@@ -171,13 +171,24 @@ public class MainActivity extends WearableActivity {
     }
 
 
+
     public void initiate (View view) {
         if (Switch.equals(false)) {
             Intent intent = new Intent(MainActivity.this, TrustChangeActivity.class);
+            String id = auto_id.toString();
+            intent.putExtra(Intent.EXTRA_TEXT, id);
+            intent.putExtra(SPINPOS, position);
             startActivity(intent);
+            Toast.makeText(this, "MovedTChange", Toast.LENGTH_SHORT).show();
+
         }else{
             Intent intent = new Intent(MainActivity.this, TrustLevelActivity.class);
+            String id = auto_id.toString();
+            intent.putExtra(Intent.EXTRA_TEXT, id);
+            intent.putExtra(SPINPOS, position);
             startActivity(intent);
+            Toast.makeText(this, "MovedTLevel", Toast.LENGTH_SHORT).show();
+
         }
     }
 
