@@ -24,7 +24,7 @@ import java.text.DecimalFormat;
 public class TrustLevelActivity extends WearableActivity {
     private TextView mTextView;
     private CircularSeekBar seekBar;
-    public Integer trustscore;
+    public Integer progress;
     public String trusttype;
     public String userid;
     public String timestamp;
@@ -40,7 +40,7 @@ public class TrustLevelActivity extends WearableActivity {
 
         final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
 
-        final SQLiteDatabase db = dbHelper.getWritableDatabase();
+
 
         //dbHelper.onCreate(db);
 
@@ -69,15 +69,19 @@ public class TrustLevelActivity extends WearableActivity {
             @Override
             public void onStopTrackingTouch(CircularSeekBar seekBar) {
 
-                trustscore = seekBar.getProgress();
 
-                if (trustscore <= 25) {
+
+                progress = seekBar.getProgress();
+
+                String trustscore = progress.toString();
+
+                if (progress <= 25) {
                     trusttype = "low";
-                } else if ((trustscore > 25) && (trustscore <= 50)) {
+                } else if ((progress > 25) && (progress <= 50)) {
                     trusttype = "neutral";
-                } else if ((trustscore > 50) && (trustscore <= 75)) {
+                } else if ((progress > 50) && (progress <= 75)) {
                     trusttype = "moderate";
-                } else if ((trustscore > 75) && (trustscore <= 100)) {
+                } else if ((progress > 75) && (progress <= 100)) {
                     trusttype = "high";
                 }
 
@@ -85,7 +89,11 @@ public class TrustLevelActivity extends WearableActivity {
 
                 timestamp = tsLong.toString();
 
-                dbHelper.insertNewRecorder(db, userid, timestamp, 0, trustscore, trusttype);
+                String trustcscore = progress.toString();
+
+                final SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustscore, trusttype);
 
 
             }
