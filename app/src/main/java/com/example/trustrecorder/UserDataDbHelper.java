@@ -22,29 +22,24 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-        final String SQL_CREATE_ENTRIES =
-                String.format("CREATE TABLE%s " +
-                        "(%s INTEGER NOT NULL %s TIMESTAMP DEFAULT,%s INTEGER NOT NULL,%s INTEGER NOT NULL,%s INTEGER NOT NULL)",
-                        TrustData.TABLE_NAME,
-                        TrustData.COLUMN_NAME_ID,
-                        TrustData.COLUMN_NAME_TIMESTAMP,
-                        TrustData.COLUMN_NAME_TRUSTSCORE,
-                        TrustData.COLUMN_NAME_TRUSTLEVEL,
-                        TrustData.COLUMN_NAME_UP_OR_DOWN);//add by haiyang
-
+        final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TrustData.TABLE_NAME +
+                " (" + TrustData.COLUMN_NAME_ID + " INTEGER," + TrustData.COLUMN_NAME_TIMESTAMP + " TEXT,"
+                + TrustData.COLUMN_NAME_TRUSTCHANGESCORE + " INTEGER," + TrustData.COLUMN_NAME_TRUSTLEVELSCORE + " INTEGER,"
+                + TrustData.COLUMN_NAME_TRUSTLEVELTYPE + " TEXT)";
         db.execSQL(SQL_CREATE_ENTRIES);
 
 
 
     }
+
     ////////////////////////add by haiyang this method could insert an item into  the database
-    public void insertNewRecorder(SQLiteDatabase db, String id, Timestamp time, Integer trust_score, Integer trust_level, Integer up_or_down){
+    public void insertNewRecorder(SQLiteDatabase db, String id, String time, Integer trust_c_score, Integer trust_l_score, String trust_l_type){
         ContentValues trust_level_recorder=new ContentValues();
         trust_level_recorder.put(TrustData.COLUMN_NAME_ID,id);
-        trust_level_recorder.put(TrustData.COLUMN_NAME_TIMESTAMP, String.valueOf(time));
-        trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTSCORE,trust_score);
-        trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTLEVEL,trust_level);
-        trust_level_recorder.put(TrustData.COLUMN_NAME_UP_OR_DOWN,up_or_down);
+        trust_level_recorder.put(TrustData.COLUMN_NAME_TIMESTAMP, time);
+        trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTCHANGESCORE,trust_c_score);
+        trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTLEVELSCORE, trust_l_score);
+        trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTLEVELTYPE,trust_l_type);
 
         db.insert(TrustData.TABLE_NAME,null,trust_level_recorder);
 
@@ -73,7 +68,7 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
 
 
                 // adding to card list
-                recorders.add(c.getInt((c.getColumnIndex(TrustData.COLUMN_NAME_TRUSTLEVEL))));
+                recorders.add(c.getInt((c.getColumnIndex(TrustData.COLUMN_NAME_TRUSTLEVELSCORE))));
             } while (c.moveToNext());
         }
 
@@ -96,4 +91,5 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
+
 }

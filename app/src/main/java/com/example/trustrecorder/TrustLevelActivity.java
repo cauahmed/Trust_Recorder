@@ -1,6 +1,7 @@
 package com.example.trustrecorder;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.CheckBox;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.widget.TextView;
 import com.example.trustrecorder.CircularSeekBar;
+import com.example.trustrecorder.UserDataDbHelper.*;
 
 
 import java.text.DecimalFormat;
@@ -23,7 +25,10 @@ public class TrustLevelActivity extends WearableActivity {
     private TextView mTextView;
     private CircularSeekBar seekBar;
     public Integer trustscore;
-
+    public String trusttype;
+    public String userid;
+    public String timestamp;
+    //public UserDataDbHelper mUserDataDbHelper;
 
 
     @Override
@@ -31,6 +36,18 @@ public class TrustLevelActivity extends WearableActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trust_level);
         mTextView = (TextView) findViewById(R.id.text);
+        //mUserDataDbHelper = new UserDataDbHelper(this);
+
+        final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
+
+        final SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        //dbHelper.onCreate(db);
+
+        final Intent intent = getIntent();
+
+        final Long tsLong = System.currentTimeMillis() / 1000;
+
 
         seekBar = (CircularSeekBar) findViewById(R.id.circularSeekBar);
         seekBar.setCircleColor(Color.CYAN);
@@ -52,19 +69,44 @@ public class TrustLevelActivity extends WearableActivity {
             @Override
             public void onStopTrackingTouch(CircularSeekBar seekBar) {
 
+                trustscore = seekBar.getProgress();
+
+                if (trustscore <= 25) {
+                    trusttype = "low";
+                } else if ((trustscore > 25) && (trustscore <= 50)) {
+                    trusttype = "neutral";
+                } else if ((trustscore > 50) && (trustscore <= 75)) {
+                    trusttype = "moderate";
+                } else if ((trustscore > 75) && (trustscore <= 100)) {
+                    trusttype = "high";
+                }
+
+                userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+                timestamp = tsLong.toString();
+
+                dbHelper.insertNewRecorder(db, userid, timestamp, 0, trustscore, trusttype);
+
+
             }
 
             @Override
             public void onStartTrackingTouch(CircularSeekBar seekBar) {
 
             }
+
+
         });
 
 
 
 
 
+
+
+
     }
+
 
 
 }

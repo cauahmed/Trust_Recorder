@@ -13,10 +13,9 @@ public class UserDataContract {
         public static final String TABLE_NAME =  "ChangeData";
         public static final String COLUMN_NAME_ID =  "Id";//add by haiyang
         public static final String COLUMN_NAME_TIMESTAMP =  "Timestamp";
-        public static final String COLUMN_NAME_TRUSTSCORE = "TrustScore";
-        public static final String COLUMN_NAME_TRUSTLEVEL = "TrustLevel";
-        public static final String COLUMN_NAME_UP_OR_DOWN = "TrustLevelStatus";//this column is used to recorder which button has been clicked, the value should be 1 if the user press the "+" button and the value should be 2 if the user press the "-" button
-
+        public static final String COLUMN_NAME_TRUSTCHANGESCORE = "TrustCScore";
+        public static final String COLUMN_NAME_TRUSTLEVELSCORE = "TrustLScore";
+        public static final String COLUMN_NAME_TRUSTLEVELTYPE = "TrustLType";
     }
 
 
