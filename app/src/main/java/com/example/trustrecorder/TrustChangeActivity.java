@@ -1,5 +1,7 @@
 package com.example.trustrecorder;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -20,11 +22,21 @@ public class TrustChangeActivity extends WearableActivity {
     private TextView mTextView;
     public AlphaAnimation buttonClick = new AlphaAnimation(0.2F, 1F);
     int i=0;
+    public String userid;
+    public String timestamp;
+    public String trustcscore;
+    public String trustlscore;
+    public String trusttype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trust_change);
+        final Intent intent = getIntent();
+        final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
+        final Long tsLong = System.currentTimeMillis() / 1000;
+
+
 
         mTextView = (TextView) findViewById(R.id.text);
         Button button1 = (Button) findViewById(R.id.button_top);
@@ -46,12 +58,22 @@ public class TrustChangeActivity extends WearableActivity {
                     public void run() {
                         if (i == 1) {
                             Toast.makeText(TrustChangeActivity.this, "UP", Toast.LENGTH_SHORT).show();
+                            trustcscore = "1";
+                            trustlscore = "0";
+                            userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = tsLong.toString();
+                            trusttype = "positive";
+                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            dbHelper.onUpgrade(db, 2, 3);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D UP", Toast.LENGTH_SHORT).show();
                         }
                         i = 0;
                     }
                 }, 500);
+
+
             }
         });
 
@@ -66,6 +88,14 @@ public class TrustChangeActivity extends WearableActivity {
                     public void run() {
                         if (i == 1) {
                             Toast.makeText(TrustChangeActivity.this, "EQ", Toast.LENGTH_SHORT).show();
+                            trustcscore = "0";
+                            trustlscore = "0";
+                            userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = tsLong.toString();
+                            trusttype = "unchanged";
+                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            dbHelper.onUpgrade(db, 2, 3);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D EQ", Toast.LENGTH_SHORT).show();
                         }
@@ -86,6 +116,14 @@ public class TrustChangeActivity extends WearableActivity {
                     public void run() {
                         if (i == 1) {
                             Toast.makeText(TrustChangeActivity.this, "DN", Toast.LENGTH_SHORT).show();
+                            trustcscore = "-1";
+                            trustlscore = "0";
+                            userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = tsLong.toString();
+                            trusttype = "negative";
+                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            dbHelper.onUpgrade(db, 2, 3);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D DN", Toast.LENGTH_SHORT).show();
                         }

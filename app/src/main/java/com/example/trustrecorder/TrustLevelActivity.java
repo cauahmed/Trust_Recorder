@@ -28,6 +28,8 @@ public class TrustLevelActivity extends WearableActivity {
     public String trusttype;
     public String userid;
     public String timestamp;
+    public String trustcscore;
+    public String trustlscore;
     //public UserDataDbHelper mUserDataDbHelper;
 
 
@@ -73,7 +75,9 @@ public class TrustLevelActivity extends WearableActivity {
 
                 progress = seekBar.getProgress();
 
-                String trustscore = progress.toString();
+                trustlscore = progress.toString();
+
+                trustcscore = "0";
 
                 if (progress <= 25) {
                     trusttype = "low";
@@ -89,11 +93,10 @@ public class TrustLevelActivity extends WearableActivity {
 
                 timestamp = tsLong.toString();
 
-                String trustcscore = progress.toString();
 
                 final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustscore, trusttype);
+                dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
 
 
             }
