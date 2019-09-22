@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.io.File;
 
 public class SettingsActivity extends WearableActivity {
 
@@ -38,16 +41,6 @@ public class SettingsActivity extends WearableActivity {
         switch1 = (Switch) findViewById(R.id.switch1);
 
 
-
-
-        //Spinner spinner = (Spinner) findViewById(R.id.spn2);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.input, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spn2.setAdapter(adapter);
 
         // Enables Always-on*/
         setAmbientEnabled();
@@ -94,6 +87,30 @@ public class SettingsActivity extends WearableActivity {
     }
 
     public void updateViews(){
+
+    }
+
+    public void writeExternal(View view){
+
+        String state;
+        state = Environment.getExternalStorageState();
+
+        if(Environment.MEDIA_MOUNTED.equals(state)){
+            File Root = Environment.getExternalStorageDirectory();
+            File Dir = new File(Root.getAbsolutePath()+"/MyDataFile");
+            if(!Dir.exists()) {
+                Dir.mkdir();
+            }
+            File file = new File(Dir, "MyData.txt");
+
+        }else{
+            Toast.makeText(getApplicationContext(), "Exteral storage not available",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void readExternal(View view){
+
 
     }
 }

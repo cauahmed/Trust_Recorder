@@ -42,8 +42,6 @@ public class MainActivity extends WearableActivity {
     String position;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +59,6 @@ public class MainActivity extends WearableActivity {
         auto_id.setText(t);
 
        /////////////////////////////
-
-
 
 
         if( intent.getExtras() == null)
