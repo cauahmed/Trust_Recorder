@@ -17,6 +17,10 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 
 public class SettingsActivity extends WearableActivity {
 
@@ -31,6 +35,9 @@ public class SettingsActivity extends WearableActivity {
     private Switch switch1;
     private String switchpos;
 
+    private static final String SAMPLE_DB_NAME = "UserData.db";
+    private static final String SAMPLE_TABLE_NAME = "ChangeData";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +46,6 @@ public class SettingsActivity extends WearableActivity {
         mTextView = (TextView) findViewById(R.id.text);
 
         switch1 = (Switch) findViewById(R.id.switch1);
-
-
 
         // Enables Always-on*/
         setAmbientEnabled();
@@ -86,31 +91,5 @@ public class SettingsActivity extends WearableActivity {
 
     }
 
-    public void updateViews(){
 
-    }
-
-    public void writeExternal(View view){
-
-        String state;
-        state = Environment.getExternalStorageState();
-
-        if(Environment.MEDIA_MOUNTED.equals(state)){
-            File Root = Environment.getExternalStorageDirectory();
-            File Dir = new File(Root.getAbsolutePath()+"/MyDataFile");
-            if(!Dir.exists()) {
-                Dir.mkdir();
-            }
-            File file = new File(Dir, "MyData.txt");
-
-        }else{
-            Toast.makeText(getApplicationContext(), "Exteral storage not available",Toast.LENGTH_LONG).show();
-        }
-
-    }
-
-    public void readExternal(View view){
-
-
-    }
 }

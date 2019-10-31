@@ -27,7 +27,6 @@ public class TrustLevelActivity extends WearableActivity {
     public Integer progress;
     public String trusttype;
     public String userid;
-    public String timestamp;
     public String trustcscore;
     public String trustlscore;
     //public UserDataDbHelper mUserDataDbHelper;
@@ -38,17 +37,10 @@ public class TrustLevelActivity extends WearableActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trust_level);
         mTextView = (TextView) findViewById(R.id.text);
-        //mUserDataDbHelper = new UserDataDbHelper(this);
 
         final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
 
-
-
-        //dbHelper.onCreate(db);
-
         final Intent intent = getIntent();
-
-        final Long tsLong = System.currentTimeMillis() / 1000;
 
 
         seekBar = (CircularSeekBar) findViewById(R.id.circularSeekBar);
@@ -72,12 +64,7 @@ public class TrustLevelActivity extends WearableActivity {
             public void onStopTrackingTouch(CircularSeekBar seekBar) {
 
 
-
                 progress = seekBar.getProgress();
-
-                trustlscore = progress.toString();
-
-                trustcscore = "0";
 
                 if (progress <= 25) {
                     trusttype = "low";
@@ -89,14 +76,16 @@ public class TrustLevelActivity extends WearableActivity {
                     trusttype = "high";
                 }
 
-                userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                trustlscore = progress.toString();
 
-                timestamp = tsLong.toString();
+                trustcscore = "0";
+
+                userid = intent.getStringExtra(Intent.EXTRA_TEXT);
 
 
                 final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
+                dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
 
 
             }

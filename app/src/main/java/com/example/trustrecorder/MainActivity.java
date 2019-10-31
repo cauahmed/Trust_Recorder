@@ -27,6 +27,8 @@ import static com.example.trustrecorder.SettingsActivity.EXTRA_BOOLEAN;
 public class MainActivity extends WearableActivity {
 
 
+
+
     private TextView mTextView;
     private TextView auto_id;
 
@@ -40,6 +42,7 @@ public class MainActivity extends WearableActivity {
     private String usertext;
     private int spinnum;
     String position;
+    String auto_id_num;
 
 
     @Override
@@ -48,97 +51,41 @@ public class MainActivity extends WearableActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-///////////////////////////////////////////////add by haiyang
-        //find Id text view
-        auto_id=findViewById(R.id.test_id);
+
+        auto_id = findViewById(R.id.test_id);
         //generate test id by time stamp;
+
+        auto_id_num = Long.toString(System.currentTimeMillis() / 1000);
+
 
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-        String t=format.format(new Date());
+        String t = format.format(new Date());
         auto_id.setText(t);
 
-       /////////////////////////////
 
-
-        if( intent.getExtras() == null)
-        {
+        if (intent.getExtras() == null) {
             position = "Input Mode";
 
-        }else{
+        } else {
             position = intent.getStringExtra(EXTRA_BOOLEAN);
         }
 
-
         mTextView = (TextView) findViewById(R.id.text);
-        //spn1 = (Spinner) findViewById(R.id.spn1);
-        user = (TextView) findViewById(R.id.user);
 
 
-
-        if(position.compareTo("false")==0){
-        }else if(position.compareTo("true")==0){
+        if (position.compareTo("false") == 0) {
+        } else if (position.compareTo("true") == 0) {
             Switch = true;
         }
 
-
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-              //  R.array.users, android.R.layout.simple_spinner_item);
-        // S//pecify the layout to use when the list of choices appears
-       // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-//        spn1.setAdapter(adapter);
-
-        // Enables Always-on
         setAmbientEnabled();
 
-       // spn1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           // @Override
-          //  public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-               // switch(position){
-                //    case 0:
-                        user.setText("Welcome");
-                  //      break;
-                //    case 1:
-                  //      user.setText("Welcome ABCD");
-                 //       break;
-                //    case 2:
-                  //      user.setText("Welcome ABC");
-                 //       break;
-                //    case 3:
-                 //       user.setText("Welcome AB");
-                 //       break;
-                //    case 4:
-                 //       user.setText("Welcome A");
-                 //       break;
-                }
-           // }
-
-           // @Override
-         //   public void onNothingSelected(AdapterView<?> adapterView) {
-
-          //  }
-       // }
-      //  );
-      //  loadData();
-       // updateViews();
-
-   // }
-
-
+    }
 
     public void gotosetting (View view)
     {
-        TextView user = (TextView) findViewById(R.id.user);
-        String text = user.getText().toString();
-        //Spinner spn1 = (Spinner) findViewById(R.id.spn1) ;
-       // int pos = spn1.getSelectedItemPosition();
-
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-        //intent.putExtra(EXTRA_TEXT, text);
-        //intent.putExtra(EXTRA_NUMBER, pos);
         startActivity(intent);
         saveData();
 
@@ -148,8 +95,7 @@ public class MainActivity extends WearableActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-       // editor.putInt(INTEGER, spn1.getSelectedItemPosition());
-        editor.putString(TEXT, auto_id.getText().toString());
+        editor.putString(TEXT, auto_id_num);
         editor.apply();
 
         Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
@@ -163,27 +109,23 @@ public class MainActivity extends WearableActivity {
 
     public void updateViews(){
         user.setText(usertext);
-       // spn1.setSelection(spinnum);
     }
-
 
 
     public void initiate (View view) {
         if (Switch.equals(false)) {
             Intent intent = new Intent(MainActivity.this, TrustChangeActivity.class);
-            String id = auto_id.toString();
-            intent.putExtra(Intent.EXTRA_TEXT, id);
+            intent.putExtra(Intent.EXTRA_TEXT, auto_id_num);
             intent.putExtra(SPINPOS, position);
             startActivity(intent);
-            Toast.makeText(this, "MovedTChange", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Trust Change", Toast.LENGTH_SHORT).show();
 
         }else{
             Intent intent = new Intent(MainActivity.this, TrustLevelActivity.class);
-            String id = auto_id.toString();
-            intent.putExtra(Intent.EXTRA_TEXT, id);
+            intent.putExtra(Intent.EXTRA_TEXT, auto_id_num);
             intent.putExtra(SPINPOS, position);
             startActivity(intent);
-            Toast.makeText(this, "MovedTLevel", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Trust Level", Toast.LENGTH_SHORT).show();
 
         }
     }

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <string-array name="users">
-                <item>Select ID</item>
-                <item>123456</item>
-                <item>34567</item>
-                <item>87921</item>
-                <item>09817</item>
+                <item>TestID1</item>
+                <item>TestID2</item>
+                <item>TestID3</item>
+                <item>TestID4</item>
         </string-array>
         <string-array name="input">
                 <item>INPUT MODE</item>
@@ -42,5 +41,8 @@
         <string name="moderate">Fair</string>
         <string name="stable">Stable</string>
         <string name="high">High</string>
+        <string name="userinstruction1">Press Settings to adjust settings</string>
+        <string name="userinstruction2">Press Start to initiate session</string>
+
 
 </resources>

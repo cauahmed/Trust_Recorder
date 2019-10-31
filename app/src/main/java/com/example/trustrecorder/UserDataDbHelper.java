@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserDataDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 5;
     public static final String DATABASE_NAME = "UserData.db";
 
     public UserDataDbHelper(Context context){
@@ -23,7 +23,7 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TrustData.TABLE_NAME +
-                " (" + TrustData.COLUMN_NAME_ID + " TEXT," + TrustData.COLUMN_NAME_TIMESTAMP + " TEXT,"
+                " (" + TrustData.COLUMN_NAME_ID + " TEXT," + " TEXT,"
                 + TrustData.COLUMN_NAME_TRUSTCHANGESCORE + " TEXT," + TrustData.COLUMN_NAME_TRUSTLEVELSCORE + " TEXT,"
                 + TrustData.COLUMN_NAME_TRUSTLEVELTYPE + " TEXT)";
         db.execSQL(SQL_CREATE_ENTRIES);
@@ -33,10 +33,9 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
     }
 
     ////////////////////////add by haiyang this method could insert an item into  the database
-    public void insertNewRecorder(SQLiteDatabase db, String id, String time, String trust_c_score, String trust_l_score, String trust_l_type){
+    public void insertNewRecorder(SQLiteDatabase db, String id, String trust_c_score, String trust_l_score, String trust_l_type){
         ContentValues trust_level_recorder=new ContentValues();
         trust_level_recorder.put(TrustData.COLUMN_NAME_ID,id);
-        trust_level_recorder.put(TrustData.COLUMN_NAME_TIMESTAMP, time);
         trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTCHANGESCORE,trust_c_score);
         trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTLEVELSCORE, trust_l_score);
         trust_level_recorder.put(TrustData.COLUMN_NAME_TRUSTLEVELTYPE,trust_l_type);
@@ -76,7 +75,6 @@ public class UserDataDbHelper extends SQLiteOpenHelper {
     }
 
 
-///////////////////////////////////
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         final String SQL_DELETE_ENTRIES =
                 "DROP TABLE IF EXISTS " + TrustData.TABLE_NAME;

@@ -11,8 +11,7 @@ public class UserDataContract {
     //so I change this part but you guys could edit it if you get a better way
     public static class TrustData implements BaseColumns {
         public static final String TABLE_NAME =  "ChangeData";
-        public static final String COLUMN_NAME_ID =  "Id";//add by haiyang
-        public static final String COLUMN_NAME_TIMESTAMP =  "Timestamp";
+        public static final String COLUMN_NAME_ID =  "Id";
         public static final String COLUMN_NAME_TRUSTCHANGESCORE = "TrustCScore";
         public static final String COLUMN_NAME_TRUSTLEVELSCORE = "TrustLScore";
         public static final String COLUMN_NAME_TRUSTLEVELTYPE = "TrustLType";
