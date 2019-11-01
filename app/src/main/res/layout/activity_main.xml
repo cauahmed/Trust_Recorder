@@ -71,7 +71,6 @@
             android:text=""
             android:textColor="@color/blue"
 
-
             />
 
        <TextView
@@ -95,7 +94,7 @@
             android:id="@+id/userinstruction1"
             android:layout_width="150dp"
             android:layout_height="18dp"
-            android:paddingTop="5dp"
+            android:paddingTop="0dp"
             android:textAlignment="center"
             android:text="@string/userinstruction1"
             android:textColor="#000000"
@@ -105,7 +104,7 @@
             android:id="@+id/userinstruction2"
             android:layout_width="150dp"
             android:layout_height="18dp"
-            android:paddingTop="5dp"
+            android:paddingTop="0dp"
             android:textAlignment="center"
             android:text="@string/userinstruction2"
             android:textColor="#000000"

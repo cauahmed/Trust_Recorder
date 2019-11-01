@@ -34,6 +34,7 @@ public class TrustChangeActivity extends WearableActivity {
         final Intent intent = getIntent();
         final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
 
+
         mTextView = (TextView) findViewById(R.id.text);
         Button button1 = (Button) findViewById(R.id.button_top);
         Button button2 = (Button) findViewById(R.id.button_middle);
@@ -58,7 +59,7 @@ public class TrustChangeActivity extends WearableActivity {
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
                             trusttype = "positive";
-                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            SQLiteDatabase db = dbHelper.getWritableDatabase();
                             dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D UP", Toast.LENGTH_SHORT).show();
@@ -86,8 +87,9 @@ public class TrustChangeActivity extends WearableActivity {
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
                             trusttype = "unchanged";
-                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            SQLiteDatabase db = dbHelper.getWritableDatabase();
                             dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
+
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D EQ", Toast.LENGTH_SHORT).show();
                         }
@@ -112,7 +114,7 @@ public class TrustChangeActivity extends WearableActivity {
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
                             trusttype = "negative";
-                            final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            SQLiteDatabase db = dbHelper.getWritableDatabase();
                             dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D DN", Toast.LENGTH_SHORT).show();

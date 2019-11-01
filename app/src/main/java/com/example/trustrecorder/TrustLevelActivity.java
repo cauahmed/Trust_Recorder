@@ -82,8 +82,7 @@ public class TrustLevelActivity extends WearableActivity {
 
                 userid = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-
-                final SQLiteDatabase db = dbHelper.getWritableDatabase();
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                 dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
 
