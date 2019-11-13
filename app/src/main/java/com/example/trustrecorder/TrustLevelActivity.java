@@ -25,6 +25,7 @@ public class TrustLevelActivity extends WearableActivity {
     private TextView mTextView;
     private CircularSeekBar seekBar;
     public Integer progress;
+    public String timestamp;
     public String trusttype;
     public String userid;
     public String trustcscore;
@@ -82,9 +83,11 @@ public class TrustLevelActivity extends WearableActivity {
 
                 userid = intent.getStringExtra(Intent.EXTRA_TEXT);
 
+                timestamp = Long.toString(System.currentTimeMillis() / 1000);
+
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
+                dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
 
 
             }

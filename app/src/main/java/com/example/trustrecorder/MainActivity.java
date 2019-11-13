@@ -1,6 +1,8 @@
 package com.example.trustrecorder;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.text.SimpleDateFormat;
@@ -27,23 +29,24 @@ import static com.example.trustrecorder.SettingsActivity.EXTRA_BOOLEAN;
 public class MainActivity extends WearableActivity {
 
 
-
-
-    private TextView mTextView;
-    private TextView auto_id;
-
     //Spinner spn1;
     TextView user;
+    TextView test_id;
+
+
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
     public static final String SPINPOS = ".com.example.application.Trust_Recorder.SPINPOS";
     public Boolean Switch = false;
 
     private String usertext;
-    private int spinnum;
+    String test_id_val;
     String position;
     String auto_id_num;
 
+
+    final String[] Options = {"test_user_1", "test_user_2", "test_user_3"};
+    AlertDialog.Builder window;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +55,10 @@ public class MainActivity extends WearableActivity {
 
         Intent intent = getIntent();
 
-        auto_id = findViewById(R.id.test_id);
-        //generate test id by time stamp;
+        test_id = (TextView) findViewById(R.id.test_id);
 
+        //generate test id by time stamp
         auto_id_num = Long.toString(System.currentTimeMillis() / 1000);
-
-
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-        String t = format.format(new Date());
-        auto_id.setText(t);
-
 
         if (intent.getExtras() == null) {
             position = "Input Mode";
@@ -70,8 +66,6 @@ public class MainActivity extends WearableActivity {
         } else {
             position = intent.getStringExtra(EXTRA_BOOLEAN);
         }
-
-        mTextView = (TextView) findViewById(R.id.text);
 
 
         if (position.compareTo("false") == 0) {
@@ -82,6 +76,35 @@ public class MainActivity extends WearableActivity {
         setAmbientEnabled();
 
     }
+
+    public void selectUser (View view){
+        window = new AlertDialog.Builder(this);
+        window.setTitle("Select a user");
+        window.setItems(Options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(which == 0){
+                    test_id.setText("Test User 1");
+                    test_id_val = "test_user_1";
+
+                }else if(which == 1){
+                    test_id.setText("Test User 2");
+                    test_id_val = "test_user_2";
+
+                }else if(which == 2){
+                    test_id.setText("Test User 3");
+                    test_id_val = "test_user_3";
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "No selection due to error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        window.show();
+    }
+
+
 
     public void gotosetting (View view)
     {
@@ -115,14 +138,14 @@ public class MainActivity extends WearableActivity {
     public void initiate (View view) {
         if (Switch.equals(false)) {
             Intent intent = new Intent(MainActivity.this, TrustChangeActivity.class);
-            intent.putExtra(Intent.EXTRA_TEXT, auto_id_num);
+            intent.putExtra(Intent.EXTRA_TEXT, test_id_val);
             intent.putExtra(SPINPOS, position);
             startActivity(intent);
             Toast.makeText(this, "Trust Change", Toast.LENGTH_SHORT).show();
 
         }else{
             Intent intent = new Intent(MainActivity.this, TrustLevelActivity.class);
-            intent.putExtra(Intent.EXTRA_TEXT, auto_id_num);
+            intent.putExtra(Intent.EXTRA_TEXT, test_id_val);
             intent.putExtra(SPINPOS, position);
             startActivity(intent);
             Toast.makeText(this, "Trust Level", Toast.LENGTH_SHORT).show();

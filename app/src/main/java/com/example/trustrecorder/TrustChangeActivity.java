@@ -23,6 +23,7 @@ public class TrustChangeActivity extends WearableActivity {
     public AlphaAnimation buttonClick = new AlphaAnimation(0.2F, 1F);
     int i=0;
     public String userid;
+    public String timestamp;
     public String trustcscore;
     public String trustlscore;
     public String trusttype;
@@ -33,6 +34,7 @@ public class TrustChangeActivity extends WearableActivity {
         setContentView(R.layout.trust_change);
         final Intent intent = getIntent();
         final UserDataDbHelper dbHelper = new UserDataDbHelper(this);
+
 
 
         mTextView = (TextView) findViewById(R.id.text);
@@ -50,7 +52,7 @@ public class TrustChangeActivity extends WearableActivity {
                 i++;
 
                 Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
                         if (i == 1) {
@@ -58,15 +60,16 @@ public class TrustChangeActivity extends WearableActivity {
                             trustcscore = "1";
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = Long.toString(System.currentTimeMillis() / 1000);
                             trusttype = "positive";
                             SQLiteDatabase db = dbHelper.getWritableDatabase();
-                            dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D UP", Toast.LENGTH_SHORT).show();
                         }
                         i = 0;
                     }
-                }, 500);
+                });
 
 
             }
@@ -78,7 +81,7 @@ public class TrustChangeActivity extends WearableActivity {
                 i++;
 
                 Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
                         if (i == 1) {
@@ -86,16 +89,17 @@ public class TrustChangeActivity extends WearableActivity {
                             trustcscore = "0";
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = Long.toString(System.currentTimeMillis() / 1000);
                             trusttype = "unchanged";
                             SQLiteDatabase db = dbHelper.getWritableDatabase();
-                            dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
 
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D EQ", Toast.LENGTH_SHORT).show();
                         }
                         i = 0;
                     }
-                }, 500);
+                });
             }
         });
 
@@ -105,7 +109,7 @@ public class TrustChangeActivity extends WearableActivity {
                 i++;
 
                 Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
                         if (i == 1) {
@@ -113,15 +117,16 @@ public class TrustChangeActivity extends WearableActivity {
                             trustcscore = "-1";
                             trustlscore = "0";
                             userid = intent.getStringExtra(Intent.EXTRA_TEXT);
+                            timestamp = Long.toString(System.currentTimeMillis() / 1000);
                             trusttype = "negative";
                             SQLiteDatabase db = dbHelper.getWritableDatabase();
-                            dbHelper.insertNewRecorder(db, userid, trustcscore, trustlscore, trusttype);
+                            dbHelper.insertNewRecorder(db, userid, timestamp, trustcscore, trustlscore, trusttype);
                         } else if (i == 2){
                             Toast.makeText(TrustChangeActivity.this, "D DN", Toast.LENGTH_SHORT).show();
                         }
                         i = 0;
                     }
-                }, 500);
+                });
             }
         });
 
