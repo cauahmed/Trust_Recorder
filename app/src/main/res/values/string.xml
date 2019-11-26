@@ -12,14 +12,6 @@
                 <item>Trust level</item>
                 <item>Event based</item>
         </string-array>
-        <string-array name="interval">
-                <item>TIME INTERVAL</item>
-                <item>30 seconds</item>
-                <item>1 minute</item>
-                <item>2 minutes</item>
-                <item>5 minutes</item>
-                <item>10 minutes</item>
-        </string-array>
         <string name="app_name">Trust Recorder</string>
         <string name="welcome">Hello World</string>
         <string name="main_title">Trust Watch</string>

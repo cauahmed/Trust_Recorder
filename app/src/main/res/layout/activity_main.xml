@@ -49,10 +49,6 @@
 
     </LinearLayout>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        android:layout_weight="2" />
 
     <LinearLayout
         android:id="@+id/layout_content_child2"
@@ -81,10 +77,6 @@
                 />
 
         </LinearLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="3dp"
-            android:layout_weight="2" />
         <TextView
             android:id="@+id/userinstruction1"
             android:layout_width="150dp"
@@ -109,7 +101,7 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="5dp"
+            android:layout_height="3dp"
             android:layout_weight="2" />
 
 
